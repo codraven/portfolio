@@ -20,7 +20,7 @@ const STATS = [
 const SKILLS = [
   { h: "AI / ML / LLM", items: ["LLMs", "AI Agents", "Multi-Agent Systems", "LangChain", "LangGraph", "LangSmith", "RAG", "pgvector", "Embeddings", "Vision Language Models", "Prompt Engineering", "Function Calling", "Agent Tooling", "Hugging Face", "MCP", "Generative AI"] },
   { h: "Backend & APIs", items: ["FastAPI", "Pydantic", "SQLAlchemy", "Alembic", "REST Design", "Async", "WebSocket / SSE", "OpenTelemetry"] },
-  { h: "Languages & Data", items: ["Python", "C", "Java", "SQL", "PostgreSQL", "MySQL", "MongoDB", "Redis"] },
+  { h: "Languages & Data", items: ["Python", "SQL", "PostgreSQL", "MySQL", "MongoDB"] },
   { h: "Cloud / DevOps / Frontend", items: ["GCP", "AWS", "Azure", "Docker", "CI/CD", "GitHub Actions", "TypeScript", "Angular Material", "Linux", "Bash", "ruff", "mypy"] },
 ];
 
@@ -73,18 +73,6 @@ const PROJECTS = [
     stack: ["FastAPI", "pgvector", "Pydantic v2", "Gemini", "Groq", "Ollama", "MCP"],
     links: [{ label: "Repo", href: "https://github.com/kgovind-coder/legal-copilot" }],
   },
-  {
-    title: "Conversational Image Recognition", badge: "ML", badgeClass: "oss",
-    desc: "A chatbot that interprets user-uploaded images and responds with contextual information in natural language. TensorFlow object detection & classification, reaching 86% recognition accuracy with real-time image-based conversation.",
-    stack: ["Python", "TensorFlow", "Deep Learning", "NLP"],
-    links: [{ label: "Repo", href: "https://github.com/kgovind-coder/Conversational-image-Recognition-Chatbot" }],
-  },
-  {
-    title: "Movie Recommender", badge: "ML", badgeClass: "oss",
-    desc: "A content-based movie recommendation system over the TMDB dataset using cosine similarity across engineered feature vectors.",
-    stack: ["Python", "scikit-learn", "Cosine Similarity", "TMDB"],
-    links: [{ label: "Repo", href: "https://github.com/kgovind-coder/Movie-Recommender-System" }],
-  },
 ];
 
 const CERTS = [
@@ -118,7 +106,16 @@ const CERTS = [
     <div class="spotlight" id="spot"></div>
 
     <header class="topbar">
-      <div class="brand"><span class="dot"></span> KGR · ENGINEERING DOSSIER</div>
+      <a class="brand" href="#top" aria-label="Kurri Govinda Reddy — home">
+        <svg class="logo" viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
+          <path d="M5 6 L12 12 M5 6 L7 18 M12 12 L7 18 M12 12 L19 7 M19 7 L12 12" stroke="currentColor" stroke-width="1.1" opacity="0.45" stroke-linecap="round"/>
+          <circle cx="5" cy="6" r="2.3" fill="var(--ink)" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="7" cy="18" r="2.3" fill="var(--ink)" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="19" cy="7" r="2.3" fill="var(--ink)" stroke="currentColor" stroke-width="1.2"/>
+          <circle class="node-live" cx="12" cy="12" r="3" fill="var(--signal)"/>
+        </svg>
+        <span class="brand-name">GOVINDA&nbsp;REDDY<i>/ AI ENGINEER</i></span>
+      </a>
       <nav id="nav">
         {NAV.map((s) => <a href={`#${s.id}`} data-link={s.id}>{s.n} {s.label}</a>)}
       </nav>
@@ -128,11 +125,11 @@ const CERTS = [
       <!-- ============ HERO ============ -->
       <section class="hero" id="top">
         <div class="hero-meta" data-reveal>
-          <span><b>●</b> AVAILABLE FOR AI / ML ROLES</span>
-          <span>BENGALURU · IN</span>
+          <span><b>●</b> BUILDING PRODUCTION AI SYSTEMS</span>
+          <span>HYDERABAD · IN</span>
           <span>EST. 2025</span>
         </div>
-        <h1 data-reveal data-d="1">Kurri Govinda<br /><span class="light">Reddy</span></h1>
+        <h1 data-reveal data-d="1">Kurri<br />Govinda Reddy</h1>
         <p class="role" data-reveal data-d="2">AI / ML Engineer <span class="sep">/</span> Software Engineer (AI)</p>
         <p class="lede" data-reveal data-d="3">
           I build <b>production AI agents</b>, <b>LLM systems</b>, and <b>multi-agent pipelines</b> —
@@ -146,7 +143,7 @@ const CERTS = [
         </div>
 
         <div class="terminal" data-reveal data-d="3">
-          <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>kgr@dossier ~ %</span></div>
+          <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>govindareddy@dossier ~ %</span></div>
           <div class="body">
             <div><span class="pr">$</span> whoami <span class="c">--role</span></div>
             <div id="type-out"></div>
@@ -267,11 +264,21 @@ const CERTS = [
         </div>
         <div class="two-col">
           <div data-reveal data-d="1">
-            <span class="kicker">Degree</span>
+            <span class="kicker">Education</span>
             <div class="edu-item" style="margin-top:18px">
               <div class="school">Vasireddy Venkatadri Institute of Technology</div>
               <div class="deg">B.Tech in Computer Science &amp; Engineering — Artificial Intelligence &amp; Machine Learning</div>
               <div class="yr">2021 — 2025</div>
+            </div>
+            <div class="edu-item">
+              <div class="school">Narayana Junior College</div>
+              <div class="deg">Intermediate (MPC) — Mathematics, Physics &amp; Chemistry</div>
+              <div class="yr">2019 — 2021</div>
+            </div>
+            <div class="edu-item">
+              <div class="school">Loyola Public School</div>
+              <div class="deg">ICSE — Class X</div>
+              <div class="yr">2018 — 2019</div>
             </div>
           </div>
           <div data-reveal data-d="2">
@@ -302,7 +309,7 @@ const CERTS = [
 
       <footer>
         <span>© 2026 Kurri Govinda Reddy</span>
-        <span>Built with Astro · Deployed on GitHub Pages</span>
+        <span>AI / ML Engineer · Software Engineer (AI)</span>
       </footer>
     </main>
 

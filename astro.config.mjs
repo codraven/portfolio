@@ -5,4 +5,5 @@ export default defineConfig({
   site: 'https://kgovind-coder.github.io',
   base: '/portfolio',
   trailingSlash: 'ignore',
+  devToolbar: { enabled: false },
 });

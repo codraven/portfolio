@@ -157,9 +157,15 @@ section:first-of-type { border-top: none; }
   background: linear-gradient(to bottom, var(--ink) 30%, transparent);
   transition: padding 0.3s var(--ease);
 }
-.topbar .brand { display: flex; align-items: center; gap: 9px; color: var(--paper); }
-.topbar .dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; box-shadow: 0 0 8px var(--green); animation: pulse 2.4s infinite; }
-@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.topbar .brand { display: flex; align-items: center; gap: 10px; color: var(--paper); transition: opacity 0.2s; }
+.topbar .brand:hover { opacity: 0.82; }
+.topbar .logo { color: var(--muted); flex: none; transition: transform 0.5s var(--ease); }
+.topbar .brand:hover .logo { transform: rotate(90deg); }
+.topbar .node-live { transform-box: fill-box; transform-origin: center; animation: nodePulse 2.4s ease-in-out infinite; }
+@keyframes nodePulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.55; transform: scale(0.82); } }
+.brand-name { display: inline-flex; align-items: baseline; gap: 7px; letter-spacing: 0.14em; }
+.brand-name i { font-style: normal; color: var(--faint); letter-spacing: 0.1em; }
+@media (max-width: 560px) { .brand-name i { display: none; } }
 .topbar nav { display: flex; gap: 22px; }
 .topbar nav a { color: var(--muted); transition: color 0.2s; position: relative; }
 .topbar nav a:hover, .topbar nav a.active { color: var(--signal); }
