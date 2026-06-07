@@ -27,35 +27,42 @@ const SKILLS = [
 const EXPERIENCE = [
   {
     co: "Monocept", role: "Software Engineer", date: "Jan 2026 — Present",
-    proj: "AI-Powered Underwriting Risk Assessment Engine",
-    stack: "Python · FastAPI · LangChain · PostgreSQL · SQLAlchemy · Alembic · Azure Document Intelligence · Claude 3.5 Vision · Ollama · OpenTelemetry · Docker",
-    bullets: [
-      "Architected an AI-powered insurance underwriting <b>risk assessment</b> and <b>fraud detection</b> engine from scratch, orchestrated through DAG-based workflows.",
-      "Designed a reusable <b>DAG workflow framework</b> powering an 11-node risk pipeline, 11-node fraud pipeline, and 15+ node document extraction pipeline with dynamic routing, async job queues, and per-step audit trails.",
-      "Built a multi-stage <b>document extraction pipeline</b> combining Azure Document Intelligence (OCR), Claude 3.5 Vision (VLM), and a local LLM (gpt-oss:20b via Ollama) — structured JSON in <b>~30s per page</b>.",
-      "Instrumented <b>OpenTelemetry tracing</b> via Arize Phoenix for end-to-end observability across every workflow node and LLM call.",
-    ],
-  },
-  {
-    co: "Monocept", role: "Software Engineer", date: "2026",
-    proj: "NeuralShell — Autonomous Multi-Agent Code Generation",
-    stack: "Python 3.11+ · FastAPI · WebSocket · Ollama (qwen2.5-coder) · MySQL · Docker · Textual (TUI) · ruff · mypy",
-    bullets: [
-      "Built <b>NeuralShell</b>, an autonomous <b>multi-agent system</b> for code writing, review, testing, and deployment — code-gen quality rated <b>~90%</b> via manual review.",
-      "Introduced an <b>ArchitectureNode</b> for intelligent codebase parsing and change-location detection before any modification.",
-      "Implemented parallel agent nodes (Code / Review / Testing / Deploy) coordinated by a <b>WorkflowRouter</b> that dynamically delegates tasks.",
-      "Shipped a Textual <b>TUI client</b> with interactive mode, slash commands, dry-run previews, and target scoping — deployable across any codebase.",
+    projects: [
+      {
+        proj: "AI-Powered Underwriting Risk Assessment Engine",
+        stack: "Python · FastAPI · LangChain · PostgreSQL · SQLAlchemy · Alembic · Azure Document Intelligence · Claude 3.5 Vision · Ollama · OpenTelemetry · Docker",
+        bullets: [
+          "Architected an AI-powered insurance underwriting <b>risk assessment</b> and <b>fraud detection</b> engine from scratch, orchestrated through DAG-based workflows.",
+          "Designed a reusable <b>DAG workflow framework</b> powering an 11-node risk pipeline, 11-node fraud pipeline, and 15+ node document extraction pipeline with dynamic routing, async job queues, and per-step audit trails.",
+          "Built a multi-stage <b>document extraction pipeline</b> combining Azure Document Intelligence (OCR), Claude 3.5 Vision (VLM), and a local LLM (gpt-oss:20b via Ollama) — structured JSON in <b>~30s per page</b>.",
+          "Instrumented <b>OpenTelemetry tracing</b> via Arize Phoenix for end-to-end observability across every workflow node and LLM call.",
+        ],
+      },
+      {
+        proj: "NeuralShell — Autonomous Multi-Agent Code Generation",
+        stack: "Python 3.11+ · FastAPI · WebSocket · Ollama (qwen2.5-coder) · MySQL · Docker · Textual (TUI) · ruff · mypy",
+        bullets: [
+          "Built <b>NeuralShell</b>, an autonomous <b>multi-agent system</b> for code writing, review, testing, and deployment — code-gen quality rated <b>~90%</b> via manual review.",
+          "Introduced an <b>ArchitectureNode</b> for intelligent codebase parsing and change-location detection before any modification.",
+          "Implemented parallel agent nodes (Code / Review / Testing / Deploy) coordinated by a <b>WorkflowRouter</b> that dynamically delegates tasks.",
+          "Shipped a Textual <b>TUI client</b> with interactive mode, slash commands, dry-run previews, and target scoping — deployable across any codebase.",
+        ],
+      },
     ],
   },
   {
     co: "Monocept", role: "Software Intern", date: "May 2025 — Jan 2026",
-    proj: "MozartBot — Multi-Tenant RAG Chatbot",
-    stack: "Python · FastAPI · LangChain · LangGraph · PostgreSQL · pgvector · TypeScript · Angular Material · Ollama",
-    bullets: [
-      "Architected a multi-node <b>LangGraph</b> workflow (retrieval → grading → generation) with checkpoint memory over <b>pgvector</b> — document Q&A in <b>5–7s</b>.",
-      "Built a multi-format <b>document pipeline</b> (PDF, DOCX, Excel, CSV, image OCR) with PyMuPDF table extraction into a <b>multi-tenant</b> pgvector store with per-company isolation.",
-      "Integrated <b>8–10 LLM providers</b> (primarily Mistral 7B & LLaMA 3.2) with hot-swappable selection — ~80% retrieval accuracy across 8 conversation flows.",
-      "Implemented <b>SSE streaming</b> for real-time chat and a responsive Angular Material frontend.",
+    projects: [
+      {
+        proj: "MozartBot — Multi-Tenant RAG Chatbot",
+        stack: "Python · FastAPI · LangChain · LangGraph · PostgreSQL · pgvector · TypeScript · Angular Material · Ollama",
+        bullets: [
+          "Architected a multi-node <b>LangGraph</b> workflow (retrieval → grading → generation) with checkpoint memory over <b>pgvector</b> — document Q&A in <b>5–7s</b>.",
+          "Built a multi-format <b>document pipeline</b> (PDF, DOCX, Excel, CSV, image OCR) with PyMuPDF table extraction into a <b>multi-tenant</b> pgvector store with per-company isolation.",
+          "Integrated <b>8–10 LLM providers</b> (primarily Mistral 7B & LLaMA 3.2) with hot-swappable selection — ~80% retrieval accuracy across 8 conversation flows.",
+          "Implemented <b>SSE streaming</b> for real-time chat and a responsive Angular Material frontend.",
+        ],
+      },
     ],
   },
 ];
@@ -223,9 +230,13 @@ const CERTS = [
                 <span class="xp-date">{x.date}</span>
               </div>
               <h3 class="xp-role">{x.role}</h3>
-              <div class="xp-proj"><b set:html={x.proj} /></div>
-              <div class="stack-line"><b>STACK</b> · {x.stack}</div>
-              <ul>{x.bullets.map((b) => <li set:html={b} />)}</ul>
+              {x.projects.map((p, pi) => (
+                <div class={pi === 0 ? "xp-project" : "xp-project xp-project-more"}>
+                  <div class="xp-proj"><b set:html={p.proj} /></div>
+                  <div class="stack-line"><b>STACK</b> · {p.stack}</div>
+                  <ul>{p.bullets.map((b) => <li set:html={b} />)}</ul>
+                </div>
+              ))}
             </div>
           ))}
         </div>
