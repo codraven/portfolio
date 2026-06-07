@@ -1,0 +1,429 @@
+---
+import "../styles/global.css";
+
+const NAV = [
+  { id: "summary", n: "01", label: "Summary" },
+  { id: "skills", n: "02", label: "Stack" },
+  { id: "experience", n: "03", label: "Experience" },
+  { id: "projects", n: "04", label: "Projects" },
+  { id: "education", n: "05", label: "Education" },
+  { id: "contact", n: "06", label: "Contact" },
+];
+
+const STATS = [
+  { n: 90, suffix: "%", l: "Code-gen quality" },
+  { n: 17, suffix: "×", l: "Faster F1 (Groq vs Gemini)" },
+  { n: 10, suffix: "+", l: "LLM providers routed" },
+  { n: 100, suffix: "%", l: "Precision on key clauses" },
+];
+
+const SKILLS = [
+  { h: "AI / ML / LLM", items: ["LLMs", "AI Agents", "Multi-Agent Systems", "LangChain", "LangGraph", "LangSmith", "RAG", "pgvector", "Embeddings", "Vision Language Models", "Prompt Engineering", "Function Calling", "Agent Tooling", "Hugging Face", "MCP", "Generative AI"] },
+  { h: "Backend & APIs", items: ["FastAPI", "Pydantic", "SQLAlchemy", "Alembic", "REST Design", "Async", "WebSocket / SSE", "OpenTelemetry"] },
+  { h: "Languages & Data", items: ["Python", "C", "Java", "SQL", "PostgreSQL", "MySQL", "MongoDB", "Redis"] },
+  { h: "Cloud / DevOps / Frontend", items: ["GCP", "AWS", "Azure", "Docker", "CI/CD", "GitHub Actions", "TypeScript", "Angular Material", "Linux", "Bash", "ruff", "mypy"] },
+];
+
+const EXPERIENCE = [
+  {
+    co: "Monocept", role: "Software Engineer", date: "Jan 2026 — Present",
+    proj: "AI-Powered Underwriting Risk Assessment Engine",
+    stack: "Python · FastAPI · LangChain · PostgreSQL · SQLAlchemy · Alembic · Azure Document Intelligence · Claude 3.5 Vision · Ollama · OpenTelemetry · Docker",
+    bullets: [
+      "Architected an AI-powered insurance underwriting <b>risk assessment</b> and <b>fraud detection</b> engine from scratch, orchestrated through DAG-based workflows.",
+      "Designed a reusable <b>DAG workflow framework</b> powering an 11-node risk pipeline, 11-node fraud pipeline, and 15+ node document extraction pipeline with dynamic routing, async job queues, and per-step audit trails.",
+      "Built a multi-stage <b>document extraction pipeline</b> combining Azure Document Intelligence (OCR), Claude 3.5 Vision (VLM), and a local LLM (gpt-oss:20b via Ollama) — structured JSON in <b>~30s per page</b>.",
+      "Instrumented <b>OpenTelemetry tracing</b> via Arize Phoenix for end-to-end observability across every workflow node and LLM call.",
+    ],
+  },
+  {
+    co: "Monocept", role: "Software Engineer", date: "2026",
+    proj: "NeuralShell — Autonomous Multi-Agent Code Generation",
+    stack: "Python 3.11+ · FastAPI · WebSocket · Ollama (qwen2.5-coder) · MySQL · Docker · Textual (TUI) · ruff · mypy",
+    bullets: [
+      "Built <b>NeuralShell</b>, an autonomous <b>multi-agent system</b> for code writing, review, testing, and deployment — code-gen quality rated <b>~90%</b> via manual review.",
+      "Introduced an <b>ArchitectureNode</b> for intelligent codebase parsing and change-location detection before any modification.",
+      "Implemented parallel agent nodes (Code / Review / Testing / Deploy) coordinated by a <b>WorkflowRouter</b> that dynamically delegates tasks.",
+      "Shipped a Textual <b>TUI client</b> with interactive mode, slash commands, dry-run previews, and target scoping — deployable across any codebase.",
+    ],
+  },
+  {
+    co: "Monocept", role: "Software Intern", date: "May 2025 — Jan 2026",
+    proj: "MozartBot — Multi-Tenant RAG Chatbot",
+    stack: "Python · FastAPI · LangChain · LangGraph · PostgreSQL · pgvector · TypeScript · Angular Material · Ollama",
+    bullets: [
+      "Architected a multi-node <b>LangGraph</b> workflow (retrieval → grading → generation) with checkpoint memory over <b>pgvector</b> — document Q&A in <b>5–7s</b>.",
+      "Built a multi-format <b>document pipeline</b> (PDF, DOCX, Excel, CSV, image OCR) with PyMuPDF table extraction into a <b>multi-tenant</b> pgvector store with per-company isolation.",
+      "Integrated <b>8–10 LLM providers</b> (primarily Mistral 7B & LLaMA 3.2) with hot-swappable selection — ~80% retrieval accuracy across 8 conversation flows.",
+      "Implemented <b>SSE streaming</b> for real-time chat and a responsive Angular Material frontend.",
+    ],
+  },
+];
+
+const PROJECTS = [
+  {
+    title: "Vouchsafe", badge: "Live · v0.3.0", badgeClass: "live",
+    desc: "A signed, deterministic inventory of every AI / LLM / agent / MCP touchpoint in a codebase — mapped to EU AI Act, ISO 42001, NIST AI RMF, OWASP LLM Top 10 & MITRE ATLAS. No LLM inside. Air-gapped. Byte-identical output, signed with Ed25519.",
+    stack: ["Python", "Ed25519", "15 languages", "45+ AI SDKs", "GitHub Action"],
+    links: [{ label: "Repo", href: "https://github.com/kgovind-coder/vouchsafe" }, { label: "Marketplace", href: "https://github.com/marketplace/actions/vouchsafe-ai-inventory-scan" }],
+  },
+  {
+    title: "Legal Co-Pilot", badge: "Open Source", badgeClass: "oss",
+    desc: "A multi-provider AI legal-operations agent on a $0/month budget. Ingests contract PDFs and runs the full lifecycle: extraction → risk analysis → redlining → drafted negotiation email → action layer → long-term memory. Benchmarked on the public CUAD dataset.",
+    stack: ["FastAPI", "pgvector", "Pydantic v2", "Gemini", "Groq", "Ollama", "MCP"],
+    links: [{ label: "Repo", href: "https://github.com/kgovind-coder/legal-copilot" }],
+  },
+  {
+    title: "Conversational Image Recognition", badge: "ML", badgeClass: "oss",
+    desc: "A chatbot that interprets user-uploaded images and responds with contextual information in natural language. TensorFlow object detection & classification, reaching 86% recognition accuracy with real-time image-based conversation.",
+    stack: ["Python", "TensorFlow", "Deep Learning", "NLP"],
+    links: [{ label: "Repo", href: "https://github.com/kgovind-coder/Conversational-image-Recognition-Chatbot" }],
+  },
+  {
+    title: "Movie Recommender", badge: "ML", badgeClass: "oss",
+    desc: "A content-based movie recommendation system over the TMDB dataset using cosine similarity across engineered feature vectors.",
+    stack: ["Python", "scikit-learn", "Cosine Similarity", "TMDB"],
+    links: [{ label: "Repo", href: "https://github.com/kgovind-coder/Movie-Recommender-System" }],
+  },
+];
+
+const CERTS = [
+  { name: "Associate Cloud Engineer", iss: "Google Cloud" },
+  { name: "Generative AI Essentials Professional", iss: "Microsoft" },
+  { name: "Data Analysis Essentials Professional", iss: "Microsoft" },
+  { name: "AI for Everyone", iss: "DeepLearning.AI" },
+  { name: "Docker Foundations Professional", iss: "Docker" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kurri Govinda Reddy — AI / ML Engineer</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0c'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='700' fill='%23ff5c35' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E" />
+    <meta name="description" content="Kurri Govinda Reddy — AI / ML Engineer & Software Engineer (AI). Building production AI agents, LLM systems, and multi-agent pipelines." />
+    <meta property="og:title" content="Kurri Govinda Reddy — AI / ML Engineer" />
+    <meta property="og:description" content="Production AI agents, LLMs, and multi-agent systems." />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Spline+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="spotlight" id="spot"></div>
+
+    <header class="topbar">
+      <div class="brand"><span class="dot"></span> KGR · ENGINEERING DOSSIER</div>
+      <nav id="nav">
+        {NAV.map((s) => <a href={`#${s.id}`} data-link={s.id}>{s.n} {s.label}</a>)}
+      </nav>
+    </header>
+
+    <main class="shell">
+      <!-- ============ HERO ============ -->
+      <section class="hero" id="top">
+        <div class="hero-meta" data-reveal>
+          <span><b>●</b> AVAILABLE FOR AI / ML ROLES</span>
+          <span>BENGALURU · IN</span>
+          <span>EST. 2025</span>
+        </div>
+        <h1 data-reveal data-d="1">Kurri Govinda<br /><span class="light">Reddy</span></h1>
+        <p class="role" data-reveal data-d="2">AI / ML Engineer <span class="sep">/</span> Software Engineer (AI)</p>
+        <p class="lede" data-reveal data-d="3">
+          I build <b>production AI agents</b>, <b>LLM systems</b>, and <b>multi-agent pipelines</b> —
+          from an enterprise underwriting & fraud engine to an autonomous code-generation system and
+          an open-source legal-operations agent.
+        </p>
+        <div class="hero-cta" data-reveal data-d="3">
+          <a class="btn btn-primary" href="#projects">View Work →</a>
+          <a class="btn" href="https://github.com/kgovind-coder" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/govindareddykurri/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+
+        <div class="terminal" data-reveal data-d="3">
+          <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>kgr@dossier ~ %</span></div>
+          <div class="body">
+            <div><span class="pr">$</span> whoami <span class="c">--role</span></div>
+            <div id="type-out"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SUMMARY ============ -->
+      <section id="summary">
+        <div class="sec-head" data-reveal>
+          <span class="sec-num">01</span>
+          <h2 class="sec-title">Summary</h2>
+          <span class="sec-rule"></span>
+        </div>
+        <div class="about-grid">
+          <div data-reveal data-d="1">
+            <p>
+              AI / ML Engineer specializing in <b>production AI agents</b>, <b>Large Language Models</b>,
+              and <b>multi-agent systems</b>. I've shipped an enterprise insurance underwriting and
+              fraud-detection engine, an autonomous multi-agent code-generation system, a multi-tenant
+              RAG chatbot, and an open-source AI legal-operations agent.
+            </p>
+            <p>
+              Hands-on with custom <b>LLM routing across 10+ providers</b> (Mistral 7B, LLaMA 3.2,
+              Claude 3.5 Vision, Qwen 2.5 Coder, Gemini, Groq, Ollama), agent tooling, function calling,
+              <b>RAG over pgvector</b>, document-processing pipelines, and end-to-end
+              <b>FastAPI / SQLAlchemy</b> services.
+            </p>
+          </div>
+          <div class="facts" data-reveal data-d="2">
+            <div class="fact"><div class="k">Focus</div><div class="v">AI Agents · LLMs · RAG</div></div>
+            <div class="fact"><div class="k">Education</div><div class="v">B.Tech CSE (AI & ML)</div></div>
+            <div class="fact"><div class="k">Email</div><div class="v"><a href="mailto:kurri.govindareddy@gmail.com">kurri.govindareddy@gmail.com</a></div></div>
+            <div class="fact"><div class="k">Phone</div><div class="v"><a href="tel:+919494218866">+91 94942 18866</a></div></div>
+          </div>
+        </div>
+
+        <div class="stats" style="margin-top:54px" data-reveal data-d="2">
+          {STATS.map((s) => (
+            <div class="stat">
+              <div class="n" data-count={s.n} data-suffix={s.suffix}>0{s.suffix}</div>
+              <div class="l">{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- ============ SKILLS ============ -->
+      <section id="skills">
+        <div class="sec-head" data-reveal>
+          <span class="sec-num">02</span>
+          <h2 class="sec-title">Stack</h2>
+          <span class="sec-rule"></span>
+        </div>
+        <div class="skills">
+          {SKILLS.map((b, i) => (
+            <div class="skill-block" data-reveal data-d={String((i % 3) + 1)}>
+              <h3>{b.h}</h3>
+              <div class="tags">{b.items.map((t) => <span class="tag">{t}</span>)}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- ============ EXPERIENCE ============ -->
+      <section id="experience">
+        <div class="sec-head" data-reveal>
+          <span class="sec-num">03</span>
+          <h2 class="sec-title">Experience</h2>
+          <span class="sec-rule"></span>
+        </div>
+        <div class="xp">
+          {EXPERIENCE.map((x) => (
+            <div class="xp-item" data-reveal data-d="1">
+              <div class="xp-top">
+                <span class="xp-co">{x.co}</span>
+                <span class="xp-date">{x.date}</span>
+              </div>
+              <h3 class="xp-role">{x.role}</h3>
+              <div class="xp-proj"><b set:html={x.proj} /></div>
+              <div class="stack-line"><b>STACK</b> · {x.stack}</div>
+              <ul>{x.bullets.map((b) => <li set:html={b} />)}</ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- ============ PROJECTS ============ -->
+      <section id="projects">
+        <div class="sec-head" data-reveal>
+          <span class="sec-num">04</span>
+          <h2 class="sec-title">Selected Projects</h2>
+          <span class="sec-rule"></span>
+        </div>
+        <div class="projects">
+          {PROJECTS.map((p, i) => (
+            <article class="card tilt" data-reveal data-d={String((i % 2) + 1)}>
+              <div class="card-top">
+                <h3>{p.title}</h3>
+                <span class={`badge ${p.badgeClass}`}>{p.badge}</span>
+              </div>
+              <p>{p.desc}</p>
+              <div class="stack">{p.stack.map((s) => <span>{s}</span>)}</div>
+              <div class="card-links">
+                {p.links.map((l) => <a href={l.href} target="_blank" rel="noopener">↗ {l.label}</a>)}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- ============ EDUCATION / CERTS ============ -->
+      <section id="education">
+        <div class="sec-head" data-reveal>
+          <span class="sec-num">05</span>
+          <h2 class="sec-title">Education &amp; Certifications</h2>
+          <span class="sec-rule"></span>
+        </div>
+        <div class="two-col">
+          <div data-reveal data-d="1">
+            <span class="kicker">Degree</span>
+            <div class="edu-item" style="margin-top:18px">
+              <div class="school">Vasireddy Venkatadri Institute of Technology</div>
+              <div class="deg">B.Tech in Computer Science &amp; Engineering — Artificial Intelligence &amp; Machine Learning</div>
+              <div class="yr">2021 — 2025</div>
+            </div>
+          </div>
+          <div data-reveal data-d="2">
+            <span class="kicker">Certifications</span>
+            <ul class="cert-list" style="margin-top:18px">
+              {CERTS.map((c) => (
+                <li>{c.name}<span class="iss">{c.iss}</span></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section id="contact" class="contact">
+        <span class="kicker" data-reveal>06 — Let's build</span>
+        <h2 data-reveal data-d="1">Let's make something<br />that ships.</h2>
+        <p data-reveal data-d="2">
+          Open to AI / ML engineering roles and collaborations on agents, LLM systems, and applied ML.
+        </p>
+        <a class="em" href="mailto:kurri.govindareddy@gmail.com" data-reveal data-d="2" style="font-family:var(--mono);font-size:1.05rem">kurri.govindareddy@gmail.com</a>
+        <div class="socials" style="margin-top:34px" data-reveal data-d="3">
+          <a class="btn" href="https://github.com/kgovind-coder" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/govindareddykurri/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-primary" href="mailto:kurri.govindareddy@gmail.com">Email →</a>
+        </div>
+      </section>
+
+      <footer>
+        <span>© 2026 Kurri Govinda Reddy</span>
+        <span>Built with Astro · Deployed on GitHub Pages</span>
+      </footer>
+    </main>
+
+    <script>
+      // ---- Cursor spotlight ----
+      const spot = document.getElementById("spot");
+      let raf = 0;
+      window.addEventListener("pointermove", (e) => {
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          spot.style.left = e.clientX + "px";
+          spot.style.top = e.clientY + "px";
+          spot.style.opacity = "1";
+          raf = 0;
+        });
+      });
+
+      // ---- Card hover glow tracking ----
+      document.querySelectorAll(".tilt").forEach((card) => {
+        card.addEventListener("pointermove", (e) => {
+          const r = card.getBoundingClientRect();
+          card.style.setProperty("--mx", e.clientX - r.left + "px");
+          card.style.setProperty("--my", e.clientY - r.top + "px");
+        });
+      });
+
+      // ---- Scroll reveal ----
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((en) => {
+            if (en.isIntersecting) {
+              en.target.classList.add("in");
+              io.unobserve(en.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      );
+      document.querySelectorAll("[data-reveal]").forEach((el) => io.observe(el));
+
+      // ---- Animated stat counters ----
+      const animateCount = (el) => {
+        const target = parseFloat(el.dataset.count || "0");
+        const suffix = el.dataset.suffix || "";
+        const dur = 1400;
+        let start = 0;
+        const startTime = performance.now();
+        const tick = (now) => {
+          const p = Math.min((now - startTime) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(eased * target) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
+      const countIO = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((en) => {
+            if (en.isIntersecting) {
+              animateCount(en.target);
+              countIO.unobserve(en.target);
+            }
+          });
+        },
+        { threshold: 0.6 }
+      );
+      document.querySelectorAll("[data-count]").forEach((el) => countIO.observe(el));
+
+      // ---- Hero typing effect ----
+      const out = document.getElementById("type-out");
+      const lines = [
+        { t: "AI / ML Engineer — building production agents & LLM systems.", cls: "k" },
+        { t: "Focus: multi-agent systems · RAG · LLM routing across 10+ providers.", cls: "" },
+      ];
+      let li = 0, ci = 0;
+      function typeLine() {
+        if (li >= lines.length) {
+          const cur = document.createElement("span");
+          cur.className = "cursor";
+          out.appendChild(cur);
+          return;
+        }
+        const line = lines[li];
+        if (ci === 0) {
+          const div = document.createElement("div");
+          div.innerHTML = '<span class="pr">→</span> <span class="' + line.cls + '"></span>';
+          out.appendChild(div);
+        }
+        const span = out.lastChild.querySelector("span:last-child");
+        span.textContent = line.t.slice(0, ci);
+        ci++;
+        if (ci <= line.t.length) {
+          setTimeout(typeLine, 22);
+        } else {
+          li++; ci = 0;
+          setTimeout(typeLine, 320);
+        }
+      }
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        setTimeout(typeLine, 600);
+      } else {
+        out.innerHTML = lines.map((l) => '<div><span class="pr">→</span> ' + l.t + "</div>").join("");
+      }
+
+      // ---- Active nav highlight ----
+      const links = document.querySelectorAll("[data-link]");
+      const navIO = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((en) => {
+            if (en.isIntersecting) {
+              const id = en.target.id;
+              links.forEach((l) => l.classList.toggle("active", l.dataset.link === id));
+            }
+          });
+        },
+        { threshold: 0.4 }
+      );
+      ["summary", "skills", "experience", "projects", "education", "contact"].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) navIO.observe(el);
+      });
+    </script>
+  </body>
+</html>
