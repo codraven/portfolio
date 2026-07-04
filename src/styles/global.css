@@ -395,7 +395,6 @@ section:first-of-type { border-top: none; }
 .card .badge { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; padding: 4px 8px; border-radius: 3px; text-transform: uppercase; white-space: nowrap; }
 .badge.live { color: var(--green); border: 1px solid #9fe87044; background: #9fe8700f; }
 .badge.oss { color: var(--signal); border: 1px solid var(--line); }
-.badge.internal { color: var(--muted); border: 1px solid var(--line); }
 .card p { color: var(--muted); font-size: 0.94rem; margin: 0 0 16px; }
 .card .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
 .card .stack span { font-family: var(--mono); font-size: 0.66rem; color: var(--faint); border: 1px solid var(--line-soft); padding: 3px 8px; border-radius: 3px; }
