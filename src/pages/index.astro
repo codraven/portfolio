@@ -11,10 +11,10 @@ const NAV = [
 ];
 
 const STATS = [
-  { n: 90, suffix: "%", l: "Code-gen quality" },
-  { n: 17, suffix: "×", l: "Faster F1 (Groq vs Gemini)" },
+  { n: 90, suffix: "%", l: "Code-gen quality · manual review" },
+  { n: 17, suffix: "×", l: "Faster F1 · Groq vs Gemini" },
   { n: 10, suffix: "+", l: "LLM providers routed" },
-  { n: 100, suffix: "%", l: "Precision on key clauses" },
+  { n: 100, suffix: "%", l: "Precision · CUAD key clauses" },
 ];
 
 const SKILLS = [
@@ -81,6 +81,12 @@ const PROJECTS = [
     stack: ["FastAPI", "pgvector", "Pydantic v2", "Gemini", "Groq", "Ollama", "MCP"],
     links: [{ label: "Repo", href: "https://github.com/kgovind-coder/legal-copilot" }],
   },
+  {
+    title: "NeuralShell", badge: "Internal · Monocept", badgeClass: "internal",
+    desc: "An autonomous multi-agent code-generation system: an ArchitectureNode parses the codebase, then parallel Code / Review / Testing agents coordinated by a WorkflowRouter write, review, and test changes — driven from a Textual TUI with slash commands and dry-run previews.",
+    stack: ["Python 3.11+", "FastAPI", "WebSocket", "Ollama", "Textual TUI"],
+    links: [{ label: "Details in Experience", href: "#experience" }],
+  },
 ];
 
 const CERTS = [
@@ -124,12 +130,9 @@ const CERTS = [
       knowsAbout: ["AI Agents", "Large Language Models", "Multi-Agent Systems", "RAG", "AI Security & Governance"],
     })} />
     <script is:inline>document.documentElement.classList.add("js");</script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Spline+Sans:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href="/portfolio/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/portfolio/fonts/spline-sans-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/portfolio/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin />
   </head>
   <body>
     <div class="spotlight" id="spot"></div>
