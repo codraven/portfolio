@@ -2,7 +2,7 @@
 
 Personal portfolio of **Kurri Govinda Reddy** — AI / ML Engineer & Software Engineer (AI).
 
-🔗 **Live:** https://kgovind-coder.github.io/portfolio
+🔗 **Live:** https://codraven.github.io/portfolio
 
 ## Stack
 
