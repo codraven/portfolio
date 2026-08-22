@@ -48,6 +48,7 @@ const EXPERIENCE = [
           "Built <b>NeuralShell</b>, an autonomous <b>multi-agent system</b> for code writing, review, testing, and deployment — code-gen quality rated <b>~90%</b> via manual review.",
           "Introduced an <b>ArchitectureNode</b> for intelligent codebase parsing and change-location detection before any modification.",
           "Implemented parallel agent nodes (Code / Review / Testing / Deploy) coordinated by a <b>WorkflowRouter</b> that dynamically delegates tasks.",
+          "Designed custom <b>agent tools</b> (file read/write, codebase navigation, context retrieval) exposed via <b>function calling</b>, with a self-updating context file that preserves project awareness across runs.",
           "Shipped a Textual <b>TUI client</b> with interactive mode, slash commands, dry-run previews, and target scoping — deployable across any codebase.",
         ],
       },
@@ -60,10 +61,10 @@ const EXPERIENCE = [
         proj: "MozartBot — Multi-Tenant RAG Chatbot",
         stack: "Python · FastAPI · LangChain · LangGraph · PostgreSQL · pgvector · TypeScript · Angular Material · Ollama",
         bullets: [
-          "Architected a multi-node <b>LangGraph</b> workflow (retrieval → grading → generation) with checkpoint memory over <b>pgvector</b> — document Q&A in <b>5–7s</b>.",
-          "Built a multi-format <b>document pipeline</b> (PDF, DOCX, Excel, CSV, image OCR) with PyMuPDF table extraction into a <b>multi-tenant</b> pgvector store with per-company isolation.",
+          "Architected a multi-node <b>LangGraph</b> workflow (retrieval → grading → generation) with <b>semantic + late chunking</b> and checkpoint-based memory over <b>pgvector</b> — document Q&A in <b>5–7s</b>.",
+          "Built a multi-format <b>document pipeline</b> (PDF, DOCX, Excel, CSV, image OCR) with PyMuPDF multi-page table extraction and token-aware chunking into a <b>multi-tenant</b> pgvector store with per-company database isolation.",
           "Integrated <b>8–10 LLM providers</b> (primarily Mistral 7B & LLaMA 3.2) with hot-swappable selection — ~80% retrieval accuracy across 8 conversation flows.",
-          "Implemented <b>SSE streaming</b> for real-time chat and a responsive Angular Material frontend.",
+          "Implemented <b>SSE streaming</b> across a multi-endpoint REST surface with async connection pooling and Alembic migrations, plus a responsive Angular Material frontend with live chat and upload progress.",
         ],
       },
     ],
@@ -125,7 +126,7 @@ const CERTS = [
       "@type": "Person",
       name: "Kurri Govinda Reddy",
       jobTitle: "AI / ML Engineer",
-      email: "mailto:kurri.govindareddy@gmail.com",
+      email: "mailto:govindreddy.kurri@gmail.com",
       url: "https://codraven.github.io/portfolio/",
       sameAs: ["https://github.com/codraven", "https://www.linkedin.com/in/govindareddykurri/"],
       alumniOf: { "@type": "CollegeOrUniversity", name: "Vasireddy Venkatadri Institute of Technology" },
@@ -216,7 +217,8 @@ const CERTS = [
           <div class="facts" data-reveal data-d="2">
             <div class="fact"><div class="k">Focus</div><div class="v">AI Agents · LLMs · RAG · AI Security</div></div>
             <div class="fact"><div class="k">Education</div><div class="v">B.Tech CSE (AI & ML)</div></div>
-            <div class="fact"><div class="k">Email</div><div class="v"><a href="mailto:kurri.govindareddy@gmail.com">kurri.govindareddy@gmail.com</a></div></div>
+            <div class="fact"><div class="k">Email</div><div class="v"><a href="mailto:govindreddy.kurri@gmail.com">govindreddy.kurri@gmail.com</a></div></div>
+            <div class="fact"><div class="k">Phone</div><div class="v"><a href="tel:+919494218866">+91 94942 18866</a></div></div>
             <div class="fact"><div class="k">Location</div><div class="v">Hyderabad, IN</div></div>
           </div>
         </div>
@@ -343,11 +345,12 @@ const CERTS = [
         <p data-reveal data-d="2">
           Open to AI / ML engineering roles and collaborations on agents, LLM systems, and applied ML.
         </p>
-        <a class="em" href="mailto:kurri.govindareddy@gmail.com" data-reveal data-d="2" style="font-family:var(--mono);font-size:1.05rem">kurri.govindareddy@gmail.com</a>
+        <a class="em" href="mailto:govindreddy.kurri@gmail.com" data-reveal data-d="2" style="font-family:var(--mono);font-size:1.05rem">govindreddy.kurri@gmail.com</a>
+        <a class="em" href="tel:+919494218866" data-reveal data-d="2" style="font-family:var(--mono);font-size:0.95rem;opacity:.85">+91 94942 18866</a>
         <div class="socials" style="margin-top:34px" data-reveal data-d="3">
           <a class="btn" href="https://github.com/codraven" target="_blank" rel="noopener">GitHub</a>
           <a class="btn" href="https://www.linkedin.com/in/govindareddykurri/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn btn-primary" href="mailto:kurri.govindareddy@gmail.com">Email →</a>
+          <a class="btn btn-primary" href="mailto:govindreddy.kurri@gmail.com">Email →</a>
         </div>
       </section>
 
