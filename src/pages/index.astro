@@ -30,13 +30,23 @@ const EXPERIENCE = [
     co: "Monocept", role: "Software Engineer", date: "Jan 2026 — Present",
     projects: [
       {
-        proj: "AI-Powered Underwriting Risk Assessment Engine",
-        stack: "Python · FastAPI · LangChain · PostgreSQL · SQLAlchemy · Alembic · Azure Document Intelligence · Claude 3.5 Vision · Ollama · OpenTelemetry · Docker",
+        proj: "AgentFX — Pluggable Agentic Framework (Insurance)",
+        stack: "Python 3.12 · FastAPI · Pydantic v2 · LiteLLM · PostgreSQL + pgvector · SQLAlchemy · Alembic · MCP / FastMCP · scikit-learn · Angular 17",
         bullets: [
-          "Architected an AI-powered insurance underwriting <b>risk assessment</b> and <b>fraud detection</b> engine from scratch, orchestrated through DAG-based workflows.",
-          "Designed a reusable <b>DAG workflow framework</b> powering an 11-node risk pipeline, 11-node fraud pipeline, and 15+ node document extraction pipeline with dynamic routing, async job queues, and per-step audit trails.",
-          "Built a multi-stage <b>document extraction pipeline</b> combining Azure Document Intelligence (OCR), Claude 3.5 Vision (VLM), and a local LLM (gpt-oss:20b via Ollama) — structured JSON in <b>~30s per page</b>.",
-          "Instrumented <b>OpenTelemetry tracing</b> via Arize Phoenix for end-to-end observability across every workflow node and LLM call.",
+          "Architected a <b>config-driven agentic framework</b> — one <b>BaseAgent</b> contract, an LLM-intent <b>router</b> with a deterministic pre-filter, and <b>~90 agents</b> (RAG, MCP tool-use, risk / fraud) — running <b>multi-tenant</b> across insurers (ABHI, Axis Max Life, Care, SBI).",
+          "Built the <b>RAG</b> stack: watcher-driven ingestion, pluggable chunkers, <b>hybrid</b> dense (pgvector) + BM25 retrieval fused via RRF, <b>cross-encoder rerank</b>, and grounded citations.",
+          "Built an <b>MCP agent</b> doing LLM-driven <b>multi-hop tool calling</b> over ~86 back-office tools, with circuit breakers, audience scoping, and identity-bound output scrubbing.",
+          "Built a <b>risk and fraud engine</b> — weighted multi-dimension scoring with <b>learnable weights</b> (logistic regression tuned from labelled outcomes, ROC-AUC A/B) feeding 10-dimension underwriting and 6-dimension fraud workflows over ~30 document extractors on a <b>swappable OCR layer</b>.",
+        ],
+      },
+      {
+        proj: "Mozart AI Gateway — Provider-Agnostic LLM Gateway",
+        stack: ".NET 8 · ASP.NET Core · C# · Polly · Dapper · SQL Server · OpenTelemetry · Ollama · Anthropic · Azure OpenAI",
+        bullets: [
+          "Built the <b>single gateway</b> for all LLM traffic across the platform — consumed by AgentFX and other apps — with <b>provider-agnostic routing</b>, logical model aliases, per-consumer API keys, and concurrency quotas.",
+          "Implemented resilient <b>failover</b>: fast-fail, Polly retries, and circuit breakers with a loud <b>degrade-or-block</b> policy (never a silent weaker model on compliance / OCR paths).",
+          "Instrumented full <b>audit and observability</b> — per-request model, tokens, latency and cost with prompt-hash privacy and OpenTelemetry GenAI tracing.",
+          "Built <b>GPU FinOps</b>: scale-to-zero lifecycle (curfew windows, idle-pause with replay detection, cost reconciliation) to cut idle GPU spend.",
         ],
       },
       {
