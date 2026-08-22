@@ -19,6 +19,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Compile resume (LaTeX -> PDF)
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: resume
+          root_file: main.tex
+      - name: Publish resume PDF as a static asset
+        run: |
+          mkdir -p public
+          cp resume/main.pdf public/resume.pdf
       - uses: actions/setup-node@v4
         with:
           node-version: 20

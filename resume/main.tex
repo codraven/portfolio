@@ -1,0 +1,234 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage[
+    top=1.0cm,
+    bottom=1.0cm,
+    left=1.8cm,
+    right=1.8cm,
+    footskip=1.0cm
+]{geometry}
+
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Kurri Govinda Reddy - Resume},
+    pdfauthor={Kurri Govinda Reddy},
+    pdfcreator={LaTeX},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{changepage}
+\usepackage{needspace}
+\usepackage{iftex}
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+\raggedright
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{6pt}
+
+\setlist[itemize]{topsep=2pt, partopsep=0pt, itemsep=2pt, parsep=0pt}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{0pt}{0.30cm}{0.10cm}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0pt}{0pt}
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{highlights}{
+    \begin{itemize}[topsep=2pt, parsep=0pt, partopsep=0pt, itemsep=2pt, leftmargin=0.8cm]
+}{
+    \end{itemize}
+}
+
+\newcommand{\headerrow}[2]{%
+    \noindent\textbf{#1}\hfill #2\par%
+}
+
+\begin{document}
+
+% ============== HEADER ==============
+\begin{center}
+    {\fontsize{22pt}{22pt}\selectfont\textbf{Kurri Govinda Reddy}}\\[6pt]
+    \normalsize
+    AI / ML Engineer \textbar{} AI Enablement \& Platform (LLM Gateway / Routing)\\[3pt]
+    \href{mailto:govindreddy.kurri@gmail.com}{govindreddy.kurri@gmail.com}
+    \textbar{}
+    \href{tel:+9494218866}{+91 9494218866}
+    \textbar{}
+    \href{https://www.linkedin.com/in/govindareddykurri/}{linkedin.com/in/govindareddykurri}
+    \textbar{}
+    \href{https://github.com/codraven}{github.com/codraven}
+    \textbar{}
+    \href{https://codraven.github.io/portfolio/}{codraven.github.io/portfolio}
+\end{center}
+
+\vspace{-4pt}
+
+% ============== SUMMARY ==============
+\section{Summary}
+\begin{onecolentry}
+AI / ML Engineer who builds the core building blocks of AI enablement platforms: provider-agnostic LLM routing with multi-provider failover, end-to-end observability and full request/response audit logging, multi-tenant access isolation, and API-based services. Shipped an agentic insurance claims fraud-detection platform, an autonomous multi-agent code-generation system, a multi-tenant RAG chatbot, an AI governance / compliance inventory scanner, and an open-source AI legal-operations agent. Hands-on with custom LLM routing across 10+ providers (Mistral 7B, LLaMA 3.2, Claude 3.5 Vision, Qwen 2.5 Coder, Gemini, Groq, Ollama), agent tooling, function calling, RAG over pgvector, document processing pipelines, and FastAPI / SQLAlchemy services. Drive the architecture and design decisions myself and execute in cross-functional settings.
+\end{onecolentry}
+
+\section{Technical Skills}
+\begin{onecolentry}
+\textbf{AI Enablement \& Gateway Patterns:} Provider-Agnostic LLM Routing, Multi-Provider Failover / Fallback, Cost-Tier Model Selection, Policy Enforcement (permission-gated actions), Multi-Tenant Access Isolation, Observability \& Auditability (OpenTelemetry), AI Governance / Compliance Inventory, API-Based Platforms, BYOK, LiteLLM (hands-on)
+
+\vspace{3pt}
+\textbf{Languages and Databases:} Python, SQL, PostgreSQL, MySQL, MongoDB, Redis
+
+\vspace{3pt}
+\textbf{AI / ML / LLM:} Large Language Models, AI Agents, Multi-Agent Systems, LangChain, LangGraph, LangSmith, Retrieval-Augmented Generation (RAG), Vector Databases (pgvector), Embeddings, Document Chunking, Vision Language Models, Prompt Engineering, Function Calling, Agent Tool Development, Hugging Face, Model Context Protocol (MCP), Generative AI
+
+\vspace{3pt}
+\textbf{Backend and APIs:} FastAPI, Pydantic, SQLAlchemy, Alembic, REST API Design, Async Programming, Server-Sent Events (SSE), OpenTelemetry
+
+\vspace{3pt}
+\textbf{Cloud and DevOps:} Google Cloud Platform (GCP), Amazon Web Services (AWS), Azure, Docker, CI/CD Pipelines, Git, GitHub Actions
+
+\vspace{3pt}
+\textbf{Frontend:} TypeScript, Angular Material, JavaScript, HTML, CSS, SCSS
+
+\vspace{3pt}
+\textbf{Tools and Other:} Power BI, Tableau, SAP Analytics Cloud
+\end{onecolentry}
+
+\section{Experience}
+
+\headerrow{MONOCEPT \textbar{} Software Engineer}{Jan 2026 -- Present}
+\headerrow{Project: AgentFX -- Agentic Claims \& Fraud Automation (Insurance)}{}
+
+\vspace{-2pt}
+\begin{onecolentry}
+\begin{highlights}
+    \item \textbf{Tech Stack:} Python 3.12, FastAPI, Pydantic v2, LiteLLM, PostgreSQL + pgvector, SQLAlchemy, Alembic, scikit-learn, Angular 17.
+    \item Architected a config-driven agentic framework where each customer is onboarded and tuned entirely from configuration -- new tenants, routing, rule packs, and pipelines go live without redeploying.
+    \item Built the claims fraud-detection pipeline as cooperating agents that hand off agent-to-agent (extraction, aggregation, and multi-dimension scoring) to reach a single final fraud verdict with rationale.
+    \item Added document forensics -- tampering detection (EXIF / ELA / PDF-structure) and AI-generated document detection -- to catch manipulated or synthetic claim documents before straight-through processing.
+    \item Built the RAG stack: watcher-driven ingestion, pluggable chunkers, hybrid dense (pgvector) + BM25 retrieval fused via RRF, cross-encoder rerank, and grounded citations.
+    \item Built a call-intelligence pipeline (transcription, analysis, and quality / lead scoring) as a pluggable agent pack.
+    \item Hardened LLM access behind a provider-agnostic AI gateway: only authorized consumers can reach the models, so any other machine that pings the LLMs is denied (per-consumer keyed access).
+\end{highlights}
+\end{onecolentry}
+
+\vspace{6pt}
+\headerrow{Project: NeuralShell -- Autonomous Multi-Agent Code Generation}{}
+
+\vspace{-2pt}
+\begin{onecolentry}
+\begin{highlights}
+    \item \textbf{Tech Stack:} Python 3.11+, FastAPI, WebSocket, Ollama (qwen2.5-coder:14b/7b), MySQL, Docker, Textual (TUI), ruff, mypy.
+    \item Built NeuralShell, an autonomous multi-agent system for automated code writing, review, testing, and deployment; validated against an internal .NET application (approx. 90 percent of test workload) and a Python application (approx. 10 percent), with code-generation quality rated at 90 percent through manual review.
+    \item Ported and extended the reusable DAG workflow framework, introducing ArchitectureNode for intelligent codebase parsing and change-location detection prior to any code modification.
+    \item Implemented parallel agent nodes (CodeWritingNode, ReviewNode, TestingNode, DeployNode) coordinated by a WorkflowRouter that dynamically delegates tasks across agents.
+    \item Designed custom agent tools (file read/write, codebase navigation, context retrieval) exposed to LLM agents via function calling, including a self-updating context file refreshed at workflow start and completion to maintain project awareness across runs.
+    \item Shipped a Textual-based TUI client supporting interactive mode, slash commands, dry-run previews, and target-directory scoping, deployable across any codebase regardless of language.
+\end{highlights}
+\end{onecolentry}
+
+\vspace{6pt}
+\headerrow{MONOCEPT \textbar{} Software Intern}{May 2025 -- Jan 2026}
+\headerrow{Project: MozartBot -- AI ChatBot}{}
+
+\vspace{-2pt}
+\begin{onecolentry}
+\begin{highlights}
+    \item \textbf{Tech Stack:} Python, FastAPI, LangChain, LangGraph, PostgreSQL, pgvector, TypeScript, Angular Material, SCSS, HTML5, Ollama providers.
+    \item Architected a multi-node LangGraph workflow (retrieval to grading to generation) with semantic and late document chunking and checkpoint-based memory over pgvector; exposed FastAPI endpoints for multi-turn context recall, delivering end-to-end response latency of 5 to 7 seconds for document Q\&A.
+    \item Built a multi-format document processing pipeline for PDF, DOCX, Excel, CSV, and image (OCR) inputs, including PyMuPDF multi-page table extraction with token-aware chunking, feeding embedded content into a multi-tenant PostgreSQL+pgvector store with per-company database isolation (tenant-level access isolation).
+    \item Integrated 8 to 10 LLM providers (Ollama, Google, etc.) -- primarily Mistral 7B and LLaMA 3.2 -- with hot-swappable model selection, achieving approximately 80 percent retrieval accuracy across 8 multi-turn conversation flows.
+    \item Implemented SSE streaming for real-time chat responses and document upload progress across a multi-endpoint REST surface (chat, documents, products, sessions, companies, health) with async connection pooling and Alembic migrations.
+    \item Built a responsive Angular Material frontend with real-time streaming for chat responses and document upload progress, delivering an interactive end-user UX.
+\end{highlights}
+\end{onecolentry}
+
+\section{Personal Projects}
+
+\headerrow{ScriptOCR -- Multi-Script OCR Engine (Printed \& Handwritten)}{\href{https://github.com/codraven/scriptocr}{github.com/codraven/scriptocr}}
+
+\vspace{-2pt}
+\begin{onecolentry}
+\begin{highlights}
+    \item \textbf{Tech Stack:} Python, ONNX Runtime, OpenCV, pyclipper, NumPy, Pillow.
+    \item Built a multi-script OCR engine with automatic script detection that routes each text region to a dedicated recogniser -- 6 languages (English, Hindi, Telugu, Kannada, Tamil, Malayalam), printed and handwritten.
+    \item Extracts key/value pairs and tables from page geometry alone (no LLM), preserving coordinates for downstream validation.
+    \item Trained the handwriting and Indic recognisers in-house and packaged the stack on ONNX Runtime for CPU-only, fully offline / air-gapped deployment with private model distribution.
+\end{highlights}
+\end{onecolentry}
+
+\vspace{6pt}
+\headerrow{Vouchsafe -- AI/LLM Inventory \& Compliance Scanner}{\href{https://github.com/codraven/vouchsafe}{github.com/codraven/vouchsafe}}
+
+\vspace{-2pt}
+\begin{onecolentry}
+\begin{highlights}
+    \item \textbf{Tech Stack:} Python, Ed25519 signing, RFC 3161 timestamps, in-toto/SLSA attestations, Docker (multi-arch), GitHub Actions, cross-platform desktop installers.
+    \item Built and launched Vouchsafe, a deterministic scanner that produces a signed inventory of every AI / LLM / agent / MCP touchpoint in a codebase, mapped to regulatory frameworks (EU AI Act, ISO/IEC 42001, NIST AI RMF, OWASP LLM Top 10) -- supporting AI governance and approved-provider / model standards.
+    \item Detects AI usage across 15 programming languages and 45+ provider SDKs (OpenAI, Anthropic, Azure, Google, AWS Bedrock, Mistral, Hugging Face), self-hosted runners (Ollama, vLLM, LM Studio), agent frameworks (LangChain, LangGraph, CrewAI), MCP servers, and vector / RAG platforms.
+    \item Generates audit-grade evidence in multiple formats (PDF/A-3, SARIF, CycloneDX ML-BOM, SPDX AI Profile, in-toto / SLSA attestations) with Ed25519 signing and RFC 3161 timestamps for reproducible, tamper-evident auditability.
+    \item Runs fully offline / air-gapped with deterministic, byte-identical output; 84 unit tests with cross-OS CI; shipped v0.3.0 with a native desktop GUI and multi-platform installers.
+\end{highlights}
+\end{onecolentry}
+
+\vspace{6pt}
+\headerrow{Legal Co-Pilot -- Open-Source AI Legal Operations Agent}{\href{https://github.com/codraven/legal-copilot}{github.com/codraven/legal-copilot}}
+
+\vspace{-2pt}
+\begin{onecolentry}
+\begin{highlights}
+    \item \textbf{Tech Stack:} Python 3.11+, FastAPI, async SQLAlchemy, Neon Postgres + pgvector, Pydantic v2, Alembic, PyMuPDF, httpx, Gemini 2.5 Flash, Groq, Ollama, MCP, ruff.
+    \item Built an open-source, multi-provider AI legal-operations agent on a \$0 / month budget that ingests contract PDFs and runs the full lifecycle: extraction, risk analysis, redlining, drafted negotiation email, action layer, and long-term memory.
+    \item Designed a custom provider-agnostic LLM routing layer (gateway-style, no LangChain) with hot-swappable backends across 4+ providers (Gemini, Groq, Ollama Cloud, Ollama Local) supporting cost-tier selection, BYOK, and automatic multi-provider failover on rate-limit and quota errors.
+    \item Hardened the routing layer with 76 unit tests (212 total across 8 modules) covering routing logic, fallback chains, and rate-limit handling.
+    \item Built an MCP-based action layer with a permission gate that enforces policy before any action is dispatched, keeping automated actions governed and auditable.
+    \item Implemented a Pydantic-validated extraction pipeline producing structured clause-level output (parties, dates, governing law, obligations, signatures) and a risk analyzer emitting findings with severity, confidence, and visible reasoning per finding.
+    \item Persisted long-term, counterparty-scoped agent memory on Neon Postgres with pgvector embeddings (gemini-embedding-001, 3072-dim) and Alembic-managed migrations.
+    \item Built a reproducible cross-provider benchmark on the public CUAD legal dataset, scoring extraction precision/recall per clause type across providers; head-to-head runs showed Llama 3.3 70B (Groq) outperforming Gemini 2.5 Flash on F1 and latency by 17x, achieving 100 percent precision on \texttt{governing\_law}, \texttt{auto\_renewal}, and \texttt{liability\_cap} clause matching.
+\end{highlights}
+\end{onecolentry}
+
+\section{Education}
+
+\headerrow{Vasireddy Venkatadri Institute of Technology}{2021 -- 2025}
+
+\vspace{-2pt}
+\begin{onecolentry}
+\begin{highlights}
+    \item B.Tech in Computer Science and Engineering (Artificial Intelligence and Machine Learning)
+\end{highlights}
+\end{onecolentry}
+
+\section{Certifications}
+\begin{onecolentry}
+\begin{highlights}
+    \item Associate Cloud Engineer -- Google Cloud
+    \item Generative AI Essentials Professional -- Microsoft
+    \item Data Analysis Essentials Professional -- Microsoft
+    \item AI for Everyone -- DeepLearning.AI
+    \item Docker Foundations Professional -- Docker
+\end{highlights}
+\end{onecolentry}
+
+\end{document}
