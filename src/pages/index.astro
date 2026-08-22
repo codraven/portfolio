@@ -70,6 +70,12 @@ const EXPERIENCE = [
 
 const PROJECTS = [
   {
+    title: "ScriptOCR", badge: "Open Source", badgeClass: "oss",
+    desc: "A multi-script OCR engine that keeps its coordinates. Auto-detects the script in each region and routes it to a dedicated recogniser — 6 languages (English, Hindi, Telugu, Kannada, Tamil, Malayalam), printed and handwritten — then extracts key/value pairs and tables from page geometry alone (no LLM). Trained the handwriting and Indic recognisers in-house; packaged on ONNX Runtime for CPU-only, fully offline / air-gapped deployment.",
+    stack: ["ONNX Runtime", "6 languages", "handwriting", "KV + tables", "CPU-only", "offline"],
+    links: [{ label: "Repo", href: "https://github.com/codraven/scriptocr" }],
+  },
+  {
     title: "Vouchsafe", badge: "Live · v0.3.0", badgeClass: "live",
     desc: "A signed, deterministic inventory of every AI / LLM / agent / MCP touchpoint in a codebase — mapped to EU AI Act, ISO 42001, NIST AI RMF, OWASP LLM Top 10 & MITRE ATLAS. No LLM inside. Air-gapped. Byte-identical output, signed with Ed25519.",
     stack: ["Python", "Ed25519", "15 languages", "45+ AI SDKs", "GitHub Action"],
