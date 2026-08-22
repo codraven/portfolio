@@ -30,23 +30,15 @@ const EXPERIENCE = [
     co: "Monocept", role: "Software Engineer", date: "Jan 2026 — Present",
     projects: [
       {
-        proj: "AgentFX — Pluggable Agentic Framework (Insurance)",
-        stack: "Python 3.12 · FastAPI · Pydantic v2 · LiteLLM · PostgreSQL + pgvector · SQLAlchemy · Alembic · MCP / FastMCP · scikit-learn · Angular 17",
+        proj: "AgentFX — Agentic Claims & Fraud Automation (Insurance)",
+        stack: "Python 3.12 · FastAPI · Pydantic v2 · LiteLLM · PostgreSQL + pgvector · SQLAlchemy · Alembic · scikit-learn · Angular 17",
         bullets: [
-          "Architected a <b>config-driven agentic framework</b> — one <b>BaseAgent</b> contract, an LLM-intent <b>router</b> with a deterministic pre-filter, and <b>~90 agents</b> (RAG, MCP tool-use, risk / fraud) — running <b>multi-tenant</b> across insurers (ABHI, Axis Max Life, Care, SBI).",
-          "Built the <b>RAG</b> stack: watcher-driven ingestion, pluggable chunkers, <b>hybrid</b> dense (pgvector) + BM25 retrieval fused via RRF, <b>cross-encoder rerank</b>, and grounded citations.",
-          "Built an <b>MCP agent</b> doing LLM-driven <b>multi-hop tool calling</b> over ~86 back-office tools, with circuit breakers, audience scoping, and identity-bound output scrubbing.",
-          "Built a <b>risk and fraud engine</b> — weighted multi-dimension scoring with <b>learnable weights</b> (logistic regression tuned from labelled outcomes, ROC-AUC A/B) feeding 10-dimension underwriting and 6-dimension fraud workflows over ~30 document extractors on a <b>swappable OCR layer</b>.",
-        ],
-      },
-      {
-        proj: "Mozart AI Gateway — Provider-Agnostic LLM Gateway",
-        stack: ".NET 8 · ASP.NET Core · C# · Polly · Dapper · SQL Server · OpenTelemetry · Ollama · Anthropic · Azure OpenAI",
-        bullets: [
-          "Built the <b>single gateway</b> for all LLM traffic across the platform — consumed by AgentFX and other apps — with <b>provider-agnostic routing</b>, logical model aliases, per-consumer API keys, and concurrency quotas.",
-          "Implemented resilient <b>failover</b>: fast-fail, Polly retries, and circuit breakers with a loud <b>degrade-or-block</b> policy (never a silent weaker model on compliance / OCR paths).",
-          "Instrumented full <b>audit and observability</b> — per-request model, tokens, latency and cost with prompt-hash privacy and OpenTelemetry GenAI tracing.",
-          "Built <b>GPU FinOps</b>: scale-to-zero lifecycle (curfew windows, idle-pause with replay detection, cost reconciliation) to cut idle GPU spend.",
+          "Architected a <b>config-driven agentic framework</b> where each customer is onboarded and tuned from configuration alone — new tenants, routing, rule packs and pipelines go live <b>without redeploying</b>.",
+          "Built the <b>claims fraud-detection</b> pipeline as cooperating agents that hand off <b>agent-to-agent</b> — extraction → aggregation → multi-dimension scoring — to reach a single <b>final fraud verdict</b> with rationale.",
+          "Added <b>document forensics</b> — tampering detection (EXIF / ELA / PDF-structure) and <b>AI-generated document detection</b> — to catch manipulated or synthetic claim documents before straight-through processing.",
+          "Built the <b>RAG</b> stack: watcher-driven ingestion, pluggable chunkers, <b>hybrid</b> dense (pgvector) + BM25 retrieval fused via RRF, cross-encoder rerank, and grounded citations.",
+          "Built a <b>call-intelligence pipeline</b> — transcription → analysis → quality and lead scoring — as a pluggable agent pack.",
+          "Hardened LLM access behind a provider-agnostic <b>AI gateway</b>: only authorized consumers can reach the models — any other machine that pings the LLMs is denied (per-consumer keyed access).",
         ],
       },
       {
