@@ -27,3 +27,7 @@ Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site
 ## Edit content
 
 All content lives in the frontmatter of [`src/pages/index.astro`](src/pages/index.astro) as plain data arrays (`STATS`, `SKILLS`, `EXPERIENCE`, `PROJECTS`, `CERTS`). Edit those to update the site.
+
+## Resume
+
+The resume download serves `public/resume.pdf`. Replace that file with the latest approved PDF to update the download. Deployment publishes this PDF directly; `resume/main.tex` is retained as a legacy source and is not compiled during deployment.
