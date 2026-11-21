@@ -420,9 +420,9 @@ section:first-of-type { border-top: none; }
 .contact { text-align: center; padding: 120px 0; }
 .contact h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.4rem, 6vw, 4.5rem); letter-spacing: -0.03em; margin: 0 0 10px; line-height: 1; }
 .contact .em { color: var(--signal); }
-.contact .em[href^="mailto:"] { transition: color 0.2s, text-shadow 0.2s; }
-.contact .em[href^="mailto:"]:hover,
-.contact .em[href^="mailto:"]:focus-visible {
+.contact .em { transition: color 0.2s, text-shadow 0.2s; }
+.contact .em:hover,
+.contact .em:focus-visible {
   color: #ff947a;
   text-shadow: 0 0 16px #ff5c3580;
 }
